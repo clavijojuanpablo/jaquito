@@ -1,0 +1,30 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, route, waLink, CONTACT, type Lang, type RouteKey } from '../lib/i18n';
+interface Props { lang: Lang; current?: RouteKey }
+const { lang, current } = Astro.props;
+const c = getCopy(lang);
+const items: { key: RouteKey; label: string }[] = [
+  { key: 'home', label: c.nav.inicio }, { key: 'work', label: c.nav.obra },
+  { key: 'available', label: c.nav.disponibles }, { key: 'about', label: c.nav.sobre },
+  { key: 'contact', label: c.nav.contacto }
+];
+---
+<nav class="menu" id="menu" aria-hidden="true" aria-label={lang === 'es' ? 'Menú' : 'Menu'} inert>
+  <div class="menu__top">
+    <div class="menu__brand">Jaquito</div>
+    <button class="menu__close" type="button" aria-label={lang === 'es' ? 'Cerrar' : 'Close'} data-menu-close><Icon name="close" size={24} /></button>
+  </div>
+  <div class="menu__list">
+    {items.map((it, i) => (
+      <a class:list={['menu__item', current === it.key && 'active']} href={route(it.key, lang)}>
+        <span class="num">0{i + 1}</span>
+        <span class="lbl">{it.label}</span>
+      </a>
+    ))}
+  </div>
+  <div class="menu__foot">
+    <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+    <a href={waLink()} target="_blank" rel="noreferrer">WhatsApp</a>
+  </div>
+</nav>

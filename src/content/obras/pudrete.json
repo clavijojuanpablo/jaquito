@@ -1,0 +1,25 @@
+{
+  "catalog": "JB-2025-004",
+  "year": 2025,
+  "title": "Púdrete",
+  "titleEn": "Púdrete",
+  "series": "atmos",
+  "tech": {
+    "es": "Acrílico y óleo pastel sobre lienzo",
+    "en": "Acrylic and oil pastel on canvas"
+  },
+  "dim": "100 × 85 cm",
+  "available": false,
+  "priceCOP": null,
+  "priceUSD": null,
+  "featured": 3,
+  "ph": "ph-rose",
+  "curatorial": {
+    "es": [
+      "Hay emociones que no caben en el cuerpo. \"Púdrete\" es el acto de devolver al mundo aquello que el mundo impuso: la rabia, el peso de las dinámicas ajenas, la toxicidad que se acumula sin pedir permiso. El lienzo no es una representación, es un recipiente. No pinté este cuadro para que lo vieran; lo pinté para poder soltar. El color, violento y urgente, es el único idioma que la catarsis conoce."
+    ],
+    "en": [
+      "Some emotions don’t fit inside the body. \"Púdrete\" is the act of giving back to the world what the world imposed: the rage, the weight of other people’s dynamics, the toxicity that piles up without asking permission. The canvas isn’t a representation — it’s a container. I didn’t paint this picture to be seen; I painted it to be able to let go. The color, violent and urgent, is the only language catharsis speaks."
+    ]
+  }
+}

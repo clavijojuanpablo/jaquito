@@ -1,0 +1,10 @@
+---
+import { getCopy, type Lang } from '../lib/i18n';
+import type { Work } from '../lib/works';
+interface Props { work: Work; lang: Lang; size?: 'lg' }
+const { work, lang, size } = Astro.props;
+const c = getCopy(lang);
+const key = work.available ? 'avail' : 'na';
+const label = work.available ? c.badge_avail : c.badge_sold;
+---
+<span class:list={['st', `st--${key}`, size === 'lg' && 'st--lg']}>{label}</span>

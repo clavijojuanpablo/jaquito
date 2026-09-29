@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, route, otherLang, type Lang, type RouteKey } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  current?: RouteKey;
+  over?: boolean;          // transparente sobre el hero (solo Inicio, mientras no se haga scroll)
+  back?: { href: string; label: string };  // detalle de obra: solo el botón volver
+  altHref: string;         // misma página en el otro idioma
+}
+const { lang, current, over = false, back, altHref } = Astro.props;
+const c = getCopy(lang);
+const items: { key: RouteKey; label: string }[] = [
+  { key: 'home', label: c.nav.inicio }, { key: 'work', label: c.nav.obra },
+  { key: 'available', label: c.nav.disponibles }, { key: 'about', label: c.nav.sobre },
+  { key: 'contact', label: c.nav.contacto }
+];
+const en = lang === 'en';
+---
+<header id="nav" class:list={['nav', over ? 'nav--over' : 'nav--solid', back && 'nav--sub']} data-over={over ? '1' : undefined}>
+  <div class="nav__row">
+    <div class="nav__left">
+      {back
+        ? <a class="nav__back" href={back.href} aria-label={back.label} data-back><Icon name="arrow-left" size={20} /></a>
+        : <a class="nav__brand" href={route('home', lang)}>Jaquito</a>}
+    </div>
+    {!back && (
+      <nav class="nav__links" aria-label={lang === 'es' ? 'Principal' : 'Main'}>
+        {items.map((it) => <a href={route(it.key, lang)} class:list={[current === it.key && 'on']} aria-current={current === it.key ? 'page' : undefined}>{it.label}</a>)}
+      </nav>
+    )}
+    <div class="nav__right">
+      <a class:list={['langsw', en && 'is-en']} href={altHref} hreflang={otherLang(lang)} lang={otherLang(lang)}
+        aria-label={en ? 'Cambiar a español' : 'Switch to English'}>
+        <span class="langsw__knob"></span>
+        <span class:list={['langsw__l', !en && 'on']}>ES</span>
+        <span class:list={['langsw__l', en && 'on']}>EN</span>
+      </a>
+      <button class="nav__burger" type="button" aria-label={en ? 'Menu' : 'Menú'} aria-controls="menu" aria-expanded="false" data-menu-open>
+        <span class="burger-lines"><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>

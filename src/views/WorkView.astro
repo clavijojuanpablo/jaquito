@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+import Sheet from '../components/Sheet.astro';
+import FRow from '../components/FRow.astro';
+import { getCopy, route, YEARS, SERIES, type Lang } from '../lib/i18n';
+import { getWorks } from '../lib/works';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const es = lang === 'es';
+const works = await getWorks();
+const years = [...new Set(works.map((w) => w.year))].sort((a, b) => b - a);
+const groups = years.map((y) => [y, works.filter((w) => w.year === y)] as const);
+const attrs = (w: (typeof works)[number]) => ({
+  'data-item': '', 'data-year': w.year, 'data-series': w.series?.id ?? '__none', 'data-status': w.available ? 'avail' : 'na'
+});
+const nBy = (f: (w: (typeof works)[number]) => boolean) => works.filter(f).length;
+const yearList = YEARS.filter((y) => works.some((w) => w.year === y));
+let idx = -1;
+---
+<Base lang={lang} current="work" path={route('work', lang)} altPath={route('work', es ? 'en' : 'es')}
+  title={es ? 'Obra — Jaquito' : 'Work — Jaquito'}
+  description={es ? 'Archivo de obra de Jaquito, 2023 — 2026: pintura abstracta contemporánea.' : 'Archive of work by Jaquito, 2023 — 2026: contemporary abstract painting.'}>
+  <section class="pad page-head reveal">
+    <h1 class="ptitle">{c.obra_title}</h1>
+    <div class="arch-bar">
+      <div class="viewtog" role="group" aria-label={c.view_mode}>
+        <button type="button" class="on" data-view="list" aria-label={c.view_list} aria-pressed="true"><Icon name="rows" size={15} /></button>
+        <button type="button" data-view="grid" aria-label={c.view_grid} aria-pressed="false"><Icon name="columns" size={15} /></button>
+      </div>
+      <button class="fbtn" type="button" data-sheet-open="filters" aria-haspopup="dialog">
+        <Icon name="filter" size={13} /><span>{c.filters}</span><span class="fbtn__n" data-active hidden>0</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="arch arch--list" id="arch" data-kind="work">
+    <p class="pad body arch-empty" data-empty hidden>{c.no_results}</p>
+    {groups.map(([year, list]) => (
+      <div class="arch-group" data-group>
+        <div class="arch-year reveal">{year}</div>
+        <div class="arch-listv">
+          {list.map((w) => { idx++; return (
+            <article class:list={['arch-item', idx % 2 ? 'slide-r' : 'slide-l']} {...attrs(w)}>
+              <WorkCard w={w} lang={lang} sizes="(min-width:1000px) 33vw, 100vw" eager={idx === 0} />
+            </article>
+          ); })}
+        </div>
+        <div class="arch-grid">
+          {list.map((w) => (
+            <article class="arch-cell reveal" data-delay="40" {...attrs(w)}>
+              <WorkCard w={w} lang={lang} sizes="(min-width:1000px) 30vw, 50vw" />
+            </article>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <Footer lang={lang} />
+
+  <Sheet slot="overlays" lang={lang} total={works.length}>
+    <section class="fgroup">
+      <div class="fgroup__t">{c.f_year}</div>
+      {yearList.map((y) => <FRow group="years" value={y} label={String(y)} count={nBy((w) => w.year === y)} />)}
+    </section>
+    <section class="fgroup">
+      <div class="fgroup__t">{c.f_series}</div>
+      {SERIES.map((s) => <FRow group="series" value={s.id} label={s[lang]} count={nBy((w) => w.series?.id === s.id)} />)}
+      <FRow group="series" value="__none" label={c.no_series} count={nBy((w) => !w.series)} />
+    </section>
+    <section class="fgroup">
+      <div class="fgroup__t">{c.f_status}</div>
+      <FRow group="status" value="avail" label={c.badge_avail} count={nBy((w) => w.available)} />
+      <FRow group="status" value="na" label={c.badge_sold} count={nBy((w) => !w.available)} />
+    </section>
+  </Sheet>
+  <script>
+    import '../scripts/archive.ts';
+  </script>
+</Base>

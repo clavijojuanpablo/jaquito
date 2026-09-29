@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, waLink, CONTACT, type Lang } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+---
+<footer class="foot">
+  <div class="foot__inner">
+    <div>
+      <div class="foot__name">Jaquito</div>
+      <div class="meta" style="color:rgba(242,241,236,0.55);margin-top:10px">{c.hero_role}</div>
+    </div>
+    <div class="foot__social">
+      <a href={CONTACT.instagramUrl} target="_blank" rel="noreferrer"><Icon name="instagram" size={15} /> Instagram</a>
+      <a href={CONTACT.pinterestUrl} target="_blank" rel="noreferrer"><Icon name="pinterest" size={15} /> Pinterest</a>
+      <a href={CONTACT.tiktokUrl} target="_blank" rel="noreferrer"><Icon name="tiktok" size={15} /> TikTok</a>
+      <a href={waLink()} target="_blank" rel="noreferrer"><Icon name="whatsapp" size={15} /> WhatsApp</a>
+      <a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={15} /> {CONTACT.email}</a>
+    </div>
+  </div>
+  <div class="foot__legal">© {new Date().getFullYear()} Jaquito · Medellín, Colombia</div>
+</footer>

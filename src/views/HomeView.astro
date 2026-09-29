@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Slot from '../components/Slot.astro';
+import Btn from '../components/Btn.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Footer from '../components/Footer.astro';
+import { getCopy, route, type Lang } from '../lib/i18n';
+import { getWorks } from '../lib/works';
+import { siteImage } from '../lib/site-images';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const works = await getWorks();
+const featured = works.filter((w) => w.featured != null).sort((a, b) => a.featured! - b.featured!);
+const heroM = siteImage('home-hero-mobile');
+const heroD = siteImage('home-hero-desktop');
+const chars = 'Jaquito'.split('');
+const es = lang === 'es';
+---
+<Base lang={lang} current="home" overHero path={route('home', lang)} altPath={route('home', lang === 'es' ? 'en' : 'es')}
+  title={es ? 'Jaquito — Artista visual · Medellín' : 'Jaquito — Visual artist · Medellín'}
+  description={es ? 'Jaquito es un artista visual de Medellín. Pinto atmósferas abstractas: obra original, archivo y obras disponibles.' : 'Jaquito is a visual artist from Medellín. I paint abstract atmospheres: original work, archive and available pieces.'}>
+  <section class="hero">
+    <div class="hero__art">
+      <Slot mobile={heroM} desktop={heroD} ph="ph-hero" label={es ? 'Obra principal' : 'Main artwork'} alt="" eager widths={[640, 960, 1280, 1920, 2560]} sizes="100vw" />
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__name pos-bl">
+      <h1><span class="cond">
+        <span class="sr-only">Jaquito</span>
+        <span aria-hidden="true">{chars.map((ch, i) => <span class="reveal-char" style={`animation-delay:${(0.5 + i * 0.06).toFixed(2)}s`}>{ch}</span>)}</span>
+      </span></h1>
+      <div class="role">{c.hero_role}</div>
+      <span class="hero__cue" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <section class="pad home-intro reveal">
+    <p class="lead quote">{c.intro}</p>
+    <div class="intro-cta"><Btn label={c.about_link} variant="btn--accent" icon="arrow-right" href={route('about', lang)} /></div>
+  </section>
+
+  <section class="pad" style="padding-bottom:20px">
+    <div class="reveal"><h2 class="h2" style="margin-bottom:34px">{c.featured_title}</h2></div>
+    <div class="featured">
+      {featured.map((w, i) => (
+        <div class:list={['feat-item', i === 1 ? 'slide-r' : 'slide-l']}>
+          <WorkCard w={w} lang={lang} sizes="(min-width:1000px) 30vw, 100vw" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="pad sec reveal" style="padding-top:64px">
+    <div class="cta-pair">
+      <Btn label={c.cta_full} variant="btn--solid" block icon="arrow-right" href={route('work', lang)} />
+      <Btn label={c.cta_avail} variant="btn--accent" block href={route('available', lang)} />
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>

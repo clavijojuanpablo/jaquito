@@ -1,0 +1,39 @@
+{
+  "contact": {
+    "email": "hello@jaquito.art",
+    "whatsapp": "573012386897",
+    "whatsappPretty": "+57 301 238 6897",
+    "instagram": "jaquito.art",
+    "instagramUrl": "https://www.instagram.com/jaquito.art?stkn=MTA4NmZhemtramJoYQ%3D%3D&utm_source=qr",
+    "pinterestUrl": "https://co.pinterest.com/Jaquitoart/",
+    "tiktokUrl": "https://www.tiktok.com/@jaquito.art?_r=1&_t=ZS-99lO9XcH0Gz"
+  },
+  "series": [
+    {
+      "id": "laguna",
+      "es": "Laguna y bruma",
+      "en": "Laguna y bruma"
+    },
+    {
+      "id": "dorada",
+      "es": "La ciudad dorada",
+      "en": "La ciudad dorada"
+    },
+    {
+      "id": "atmos",
+      "es": "Atmósferas emocionales",
+      "en": "Atmósferas emocionales"
+    },
+    {
+      "id": "ventanas",
+      "es": "Ventanas",
+      "en": "Ventanas"
+    }
+  ],
+  "years": [
+    2026,
+    2025,
+    2024,
+    2023
+  ]
+}

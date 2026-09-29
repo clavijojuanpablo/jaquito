@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+import Sheet from '../components/Sheet.astro';
+import FRow from '../components/FRow.astro';
+import { getCopy, route, type Lang } from '../lib/i18n';
+import { getWorks } from '../lib/works';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const es = lang === 'es';
+const list = (await getWorks()).filter((w) => w.available);
+const attrs = (w: (typeof list)[number], i: number) => ({ 'data-item': '', 'data-price': w.priceCOP ?? 0, 'data-idx': i });
+const ranges = [
+  { id: 'low', key: 'r_low', test: (p: number) => p <= 500000 },
+  { id: 'mid', key: 'r_mid', test: (p: number) => p > 500000 && p <= 1000000 },
+  { id: 'high', key: 'r_high', test: (p: number) => p > 1000000 }
+] as const;
+const sorts = [{ id: 'recent', k: 'sort_recent' }, { id: 'desc', k: 'sort_desc' }, { id: 'asc', k: 'sort_asc' }] as const;
+---
+<Base lang={lang} current="available" path={route('available', lang)} altPath={route('available', es ? 'en' : 'es')}
+  title={es ? 'Obras disponibles — Jaquito' : 'Available work — Jaquito'}
+  description={c.disp_sub}>
+  <section class="pad page-head reveal">
+    <h1 class="ptitle">{c.disp_title}</h1>
+    <p class="body sub" style="margin-top:14px">{c.disp_sub}</p>
+    <div class="arch-bar">
+      <div class="viewtog" role="group" aria-label={c.view_mode}>
+        <button type="button" class="on" data-view="list" aria-label={c.view_list} aria-pressed="true"><Icon name="rows" size={15} /></button>
+        <button type="button" data-view="grid" aria-label={c.view_grid} aria-pressed="false"><Icon name="columns" size={15} /></button>
+      </div>
+      <button class="fbtn" type="button" data-sheet-open="filters" aria-haspopup="dialog">
+        <Icon name="filter" size={13} /><span>{c.filters}</span><span class="fbtn__n" data-active hidden>0</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="arch arch--list" id="arch" data-kind="available">
+    <p class="pad body arch-empty" data-empty hidden>{c.no_results}</p>
+    <div class="arch-listv" data-list>
+      {list.map((w, i) => (
+        <article class:list={['arch-item', i % 2 ? 'slide-r' : 'slide-l']} {...attrs(w, i)}>
+          <WorkCard w={w} lang={lang} price sizes="(min-width:1000px) 33vw, 100vw" eager={i === 0} />
+        </article>
+      ))}
+    </div>
+    <div class="arch-grid" data-list>
+      {list.map((w, i) => (
+        <article class="arch-cell reveal" data-delay="40" {...attrs(w, i)}>
+          <WorkCard w={w} lang={lang} price sizes="(min-width:1000px) 30vw, 50vw" />
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="process reveal">
+    <div class="eyebrow" style="margin-bottom:20px">{c.process_title}</div>
+    <ol>
+      {c.process.map((s) => (
+        <li>
+          <span class="process__ico"><Icon name={s.icon} size={19} stroke={1.5} /></span>
+          <div><div class="t">{s.t}</div><div class="d">{s.d}</div></div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <Footer lang={lang} />
+
+  <Sheet slot="overlays" lang={lang} total={list.length}>
+    <section class="fgroup">
+      <div class="fgroup__t">{c.sort_label}</div>
+      {sorts.map((s) => <FRow group="sort" value={s.id} single on={s.id === 'recent'} label={c[s.k]} />)}
+    </section>
+    <section class="fgroup">
+      <div class="fgroup__t">{c.range_label}</div>
+      {ranges.map((r) => <FRow group="range" value={r.id} label={c[r.key]} count={list.filter((w) => r.test(w.priceCOP ?? 0)).length} />)}
+    </section>
+  </Sheet>
+  <script>
+    import '../scripts/archive.ts';
+  </script>
+</Base>

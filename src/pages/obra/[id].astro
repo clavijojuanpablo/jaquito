@@ -1,0 +1,10 @@
+---
+import DetailView from '../../views/DetailView.astro';
+import { getWorks } from '../../lib/works';
+
+export async function getStaticPaths() {
+  return (await getWorks()).map((work) => ({ params: { id: work.id }, props: { work } }));
+}
+const { work } = Astro.props;
+---
+<DetailView lang="es" work={work} />

@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+import { getCopy, route, waLink, CONTACT, type Lang } from '../lib/i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const es = lang === 'es';
+const rows = [
+  { k: c.email_label, v: CONTACT.email, href: `mailto:${CONTACT.email}`, icon: 'mail', ext: false },
+  { k: c.ig_label, v: `@${CONTACT.instagram}`, href: CONTACT.instagramUrl, icon: 'instagram', ext: true },
+  { k: c.wa_label, v: CONTACT.whatsappPretty, href: waLink(), icon: 'whatsapp', ext: true }
+];
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '';
+const fields = [
+  { key: 'n', name: 'name', label: c.f_name, ph: c.f_name_ph, type: 'text' as const, ac: 'name' },
+  { key: 'e', name: 'email', label: c.f_email, ph: c.f_email_ph, type: 'email' as const, ac: 'email' }
+];
+const errors = {
+  n_empty: c.err_name_empty, n_bad: c.err_name_bad,
+  e_empty: c.err_email_empty, e_bad: c.err_email_bad,
+  m_empty: c.err_msg_empty, m_bad: c.err_msg_bad
+};
+---
+<Base lang={lang} current="contact" path={route('contact', lang)} altPath={route('contact', es ? 'en' : 'es')} fab={false}
+  title={es ? 'Contacto — Jaquito' : 'Contact — Jaquito'} description={c.contact_sub}>
+  <section class="pad page-head reveal">
+    <h1 class="ptitle">{c.contact_title}</h1>
+    <p class="body sub" style="margin-top:16px">{c.contact_sub}</p>
+  </section>
+
+  <section class="pad ct-form">
+    <div class="form-success" data-success hidden role="status">
+      <svg class="check-ring" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="31" />
+        <path d="M20 33l8 8 16-18" />
+      </svg>
+      <h2 class="h3">{c.success_t}</h2>
+      <p class="body" style="max-width:28ch">{c.success_d}</p>
+    </div>
+    <form class="ct-fields" data-form novalidate data-endpoint={endpoint} data-mailto={CONTACT.email}
+      data-errors={JSON.stringify({ ...errors, send: c.err_send })}>
+      {fields.map((f) => (
+        <div class="field" data-field={f.key}>
+          <label for={`f-${f.name}`}>{f.label}</label>
+          <input id={`f-${f.name}`} name={f.name} type={f.type} placeholder={f.ph} autocomplete={f.ac} aria-describedby={`${f.key}-err`} />
+          <span class="underline"></span>
+          <span class="field__help" id={`${f.key}-err`} role="alert" hidden><Icon name="alert" size={16} /><span data-msg></span></span>
+        </div>
+      ))}
+      <div class="field field--ta" data-field="m">
+        <label for="f-message">{c.f_msg}</label>
+        <textarea id="f-message" name="message" rows="4" placeholder={c.f_msg_ph} aria-describedby="m-err"></textarea>
+        <span class="underline"></span>
+        <span class="field__help" id="m-err" role="alert" hidden><Icon name="alert" size={16} /><span data-msg></span></span>
+      </div>
+      <p class="field__help" data-send-error role="alert" hidden><Icon name="alert" size={16} /><span data-msg></span></p>
+      <div class="ct-submit">
+        <button class="btn btn--solid btn--block" type="submit"><span>{c.f_send}</span><span style="display:flex"><Icon name="arrow-right" size={16} /></span></button>
+      </div>
+    </form>
+  </section>
+
+  <section class="pad ct-direct reveal">
+    <div class="eyebrow" style="margin-bottom:14px">{c.direct}</div>
+    <div class="ct-list">
+      {rows.map((r) => (
+        <a class="ct-row" href={r.href} target={r.ext ? '_blank' : undefined} rel={r.ext ? 'noreferrer' : undefined}>
+          <span class="ct-row__k"><Icon name={r.icon} size={17} /><span>{r.k}</span></span>
+          <span class="ct-row__v">{r.v}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+  <script>
+    import '../scripts/contact.ts';
+  </script>
+</Base>

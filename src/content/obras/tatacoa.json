@@ -1,0 +1,27 @@
+{
+  "catalog": "JB-2026-003",
+  "year": 2026,
+  "title": "Tatacoa",
+  "titleEn": "Tatacoa",
+  "series": "ventanas",
+  "tech": {
+    "es": "Acrílico y óleo pastel sobre papel",
+    "en": "Acrylic and oil pastel on paper"
+  },
+  "dim": "35 × 25 cm",
+  "available": false,
+  "priceCOP": null,
+  "priceUSD": null,
+  "featured": null,
+  "ph": "ph-clay",
+  "curatorial": {
+    "es": [
+      "\"Tatacoa\" es la segunda ventana de la serie en abrir sus puertas. Aquí la atmósfera cambia de registro: no es la humedad de la selva, es el calor seco que se levanta desde la arena, la sequedad que se respira antes de tocarse. No es la fotografía de un desierto. Es la sensación de estar de pie sobre él: la arena rojiza calentada por un sol que no se esconde, la vegetación árida aferrándose a la tierra seca, el contraste absoluto entre ese suelo encendido y un cielo despejado, casi violento de tan azul.",
+      "Esta fue la segunda obra de la serie en viajar, y volvió a elegir el contraste como destino: se dejó en una casa de Zúrich —cerca de los Alpes, junto a un lago inmenso, entre la nieve y el frío, todo lo que Tatacoa no es—, junto a la misma nota: \"Espero que ahora un pedacito de mi hogar habite el tuyo.\" Hoy, en algún lugar de Zúrich, hay una casa con una ventana que da hacia el desierto colombiano."
+    ],
+    "en": [
+      "\"Tatacoa\" is the second window of the series to open its doors. Here the atmosphere shifts register: it isn’t the humidity of the jungle, it’s the dry heat rising off the sand, the dryness you can feel before you touch it. This isn’t a photograph of a desert. It’s the feeling of standing on top of one: reddish sand warmed by a sun that never hides, sparse vegetation clinging to the dry earth, the absolute contrast between that scorched ground and a clear sky, almost violent in how blue it is.",
+      "This was the second piece of the series to travel, and it chose contrast as its destination once again: it was left in a house in Zürich — near the Alps, beside an immense lake, surrounded by snow and cold, everything Tatacoa is not — along with the same note: \"I hope a small piece of my home now lives in yours.\" Today, somewhere in Zürich, there’s a house with a window looking out onto the Colombian desert."
+    ]
+  }
+}

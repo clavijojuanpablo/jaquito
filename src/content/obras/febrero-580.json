@@ -1,0 +1,25 @@
+{
+  "catalog": "JB-2026-001",
+  "year": 2026,
+  "title": "Febrero 580",
+  "titleEn": "Febrero 580",
+  "series": "atmos",
+  "tech": {
+    "es": "Acrílico y óleo pastel sobre lienzo",
+    "en": "Acrylic and oil pastel on canvas"
+  },
+  "dim": "100 × 85 cm",
+  "available": false,
+  "priceCOP": null,
+  "priceUSD": null,
+  "featured": 1,
+  "ph": "ph-slate",
+  "curatorial": {
+    "es": [
+      "Enero fue gris. No metafóricamente: fue el peso físico de los días lentos, del estancamiento, de la energía que no llega. \"Febrero 580\" es la respuesta cromática a esa oscuridad. El número no es arbitrario: 580 nanómetros es la longitud de onda del amarillo, la frecuencia exacta a la que vibra la luz que decidí fabricar cuando el sol no aparecía. Una obra que no espera: actúa. La construcción del amanecer como acto de resistencia."
+    ],
+    "en": [
+      "January was gray. Not metaphorically: it was the physical weight of slow days, of stagnation, of energy that never arrived. \"Febrero 580\" is the chromatic answer to that darkness. The number isn’t arbitrary: 580 nanometers is the wavelength of yellow, the exact frequency at which the light I decided to manufacture vibrates, for the days the sun didn’t show up. A work that doesn’t wait — it acts. Building your own sunrise as an act of resistance."
+    ]
+  }
+}

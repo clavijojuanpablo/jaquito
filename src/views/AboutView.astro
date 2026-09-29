@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Slot from '../components/Slot.astro';
+import Btn from '../components/Btn.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+import { getCopy, route, CONTACT, type Lang } from '../lib/i18n';
+import { siteImage } from '../lib/site-images';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const es = lang === 'es';
+// Solo se listan los PDF que realmente están en public/docs/ (sin enlaces rotos)
+const docs = c.docs.filter((d) => existsSync(join(process.cwd(), 'public', d.f)));
+---
+<Base lang={lang} current="about" path={route('about', lang)} altPath={route('about', es ? 'en' : 'es')}
+  title={es ? 'Sobre mí — Jaquito' : 'About — Jaquito'}
+  description={c.who_p[0]}>
+  <section class="hero ab-open">
+    <div class="hero__art">
+      <Slot mobile={siteImage('sobremi-hero-mobile')} desktop={siteImage('sobremi-hero-desktop')} ph="ph-hero" label={c.studio_alt} alt="" eager widths={[640, 960, 1280, 1920, 2560]} sizes="100vw" />
+    </div>
+    <div class="ab-open__scrim"></div>
+    <div class="ab-open__quote pad reveal">
+      <p class="manifesto">{c.manifesto}</p>
+    </div>
+  </section>
+
+  <section class="pad ab-who">
+    <div class="reveal">
+      <div class="eyebrow" style="margin-bottom:12px">{c.about_eyebrow}</div>
+      <h2 class="ptitle" style="margin-bottom:28px">{c.who_t}</h2>
+    </div>
+    <div class="ab-who__body">
+      <div class="ab-who__text">
+        {c.who_p.map((p, i) => <p class="body reveal" data-delay={i * 60}>{p}</p>)}
+      </div>
+      <div class="ab-cut reveal">
+        <div class="ab-cut__img">
+          <Slot mobile={siteImage('sobremi-jaquito-mobile')} desktop={siteImage('sobremi-jaquito-desktop')} ph="ph-clay" label={c.childhood_alt} alt={c.childhood_alt} widths={[480, 800, 1200]} sizes="(min-width:1000px) 30vw, 62vw" />
+        </div>
+        <div class="meta" style="margin-top:10px">{c.studio_cap}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-focus">
+    <div class="pad ab-focus__head reveal">
+      <div class="eyebrow eyebrow--inv" style="margin-bottom:14px">{c.focus_eyebrow}</div>
+      <h2 class="ab-focus__t">{c.focus_t}</h2>
+    </div>
+    <div class="pad ab-focus__cols">
+      {c.focus_p.map((p, i) => <p class="body reveal" data-delay={i * 70}>{p}</p>)}
+    </div>
+  </section>
+
+  {docs.length > 0 && (
+  <section class="pad ab-docs">
+    <div class="reveal"><div class="eyebrow" style="margin-bottom:18px">{c.docs_t}</div></div>
+    <div class="doclist">
+      {docs.map((d, i) => (
+        <a class="doc reveal" data-delay={i * 60} href={`/${d.f}`} download target="_blank" rel="noopener">
+          <span class="doc__t">{d.t}</span>
+          <span class="doc__r"><span class="meta">{d.m}</span><Icon name="download" size={17} /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+  )}
+
+  <section class="pad ab-close reveal">
+    <p class="ab-close__t">{c.close_t}</p>
+    <div class="cta-pair">
+      <Btn label={c.about_cta} variant="btn--solid" block icon="arrow-right" href={route('contact', lang)} />
+      <a class="btn btn--accent btn--block" href={CONTACT.instagramUrl} target="_blank" rel="noreferrer">
+        <span>Instagram</span><span style="display:flex"><Icon name="instagram" size={16} /></span>
+      </a>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Base>

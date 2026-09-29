@@ -1,0 +1,131 @@
+/* ============================================================
+   ADAPTACIÓN — del marco de diseño (dispositivo) a página real
+   ============================================================ */
+html{-webkit-text-size-adjust:100%;scroll-padding-top:70px}
+html.lock{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.nav{top:0}
+.hero{height:100svh}
+.hero__art{overflow:hidden}
+.hero__art .slot{width:100%;height:100%}
+.hero__art .slot img,.slot img{width:100%;height:100%}
+
+/* ---- slot: imagen real o placeholder de color ---- */
+.slot{position:relative;overflow:hidden}
+.slot picture{display:block;position:absolute;inset:0;width:100%;height:100%}
+.slot img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;-webkit-user-drag:none;user-select:none}
+.slot__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;text-align:center;color:rgba(255,255,255,.88);font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.plate>.slot,.lb__view>.slot{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
+.plate>.slot img{object-fit:cover}
+.lb__view .slot{position:absolute;inset:0}
+
+/* ---- botones tipo link: <a> con la misma cara que <button> ---- */
+a.btn,a.buybar__cta,a.nav__back,a.doc,a.plate-cta{text-decoration:none}
+a.btn{color:var(--ink)}
+a.btn--solid{color:var(--bg)}
+a.btn:hover{color:var(--bg)}
+a.btn--solid:hover{color:var(--ink)}
+a.buybar__cta,a.buybar__cta:hover{color:var(--bg)}
+a.nav__back{color:var(--ink)}
+.nav--over a.nav__back{color:#fff}
+a.langsw{text-decoration:none}
+a.wa-fab,a.wa-fab:hover{color:#fff}
+
+/* nav: enlaces de página (antes eran botones) */
+.nav__links a{color:inherit;font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:6px 0;position:relative}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav__links a:hover::after,.nav__links a.on::after{transform:scaleX(1)}
+.nav__brand{color:inherit}
+.menu__item{text-decoration:none}
+.menu__item:hover{color:var(--bg)}
+.eyebrow--link{text-decoration:none}
+
+/* tarjetas: enlace a toda el área */
+.arch-item__info{color:inherit}
+.arch-item__info:hover{color:inherit}
+.wlink{display:block;color:inherit}
+.arch-item__media{display:block}
+
+/* ---- rejilla / lista de tarjetas: dos vistas en el HTML, una visible ---- */
+.arch--list .arch-grid{display:none}
+.arch--grid .arch-item{display:none}
+@media (min-width:1000px){
+  .mode-desktop .arch--list .arch-grid{display:grid}
+  .mode-desktop .arch .arch-item{display:none}
+  .viewtog{display:none}
+}
+[hidden]{display:none!important}
+.arch-empty{padding-top:40px}
+
+/* ---- hoja de filtros: abajo en móvil / lateral en escritorio ---- */
+.sheet{left:0;right:0;bottom:0;max-height:84%;border-top:1px solid var(--line);transform:translateY(100%)}
+@media (min-width:1000px){
+  .sheet{left:auto;top:0;width:min(400px,86%);max-height:none;border-top:none;border-left:1px solid var(--line);transform:translateX(100%)}
+  .sheet__grab{display:none}
+}
+.sheet-wrap.open .sheet{transform:none}
+.sheet-scrim{cursor:pointer}
+.frow{-webkit-appearance:none;appearance:none;font:inherit}
+
+/* ---- lightbox ---- */
+.lb{visibility:hidden;transition:opacity .35s var(--ease),visibility 0s .35s}
+.lb.open{visibility:visible;transition:opacity .35s var(--ease)}
+.lb__view img{object-fit:contain}
+@media (max-width:999.98px){.lb__view{width:100%}}
+.lb__top{padding-top:calc(var(--nav-h) - 6px)}
+
+/* ---- menú móvil ---- */
+.menu{visibility:hidden;transition:clip-path .5s var(--ease),visibility 0s .5s}
+.menu.open{visibility:visible;transition:clip-path .5s var(--ease)}
+
+/* ---- rail de detalles (sin JS el scroll nativo sigue funcionando) ---- */
+.drail{-webkit-overflow-scrolling:touch}
+
+/* ---- formulario ---- */
+.form-success[hidden]{display:none}
+.field input,.field textarea{border-radius:0;-webkit-appearance:none;appearance:none}
+.field__help[hidden]{display:none}
+
+/* ---- movimiento con scroll (reemplaza a ScrollSlide, sin JS) ---- */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .slide-l,.slide-r{animation:slideIn linear both;animation-timeline:view();animation-range:cover 0 cover 42vh;animation-timing-function:cubic-bezier(.215,.61,.355,1)}
+    .slide-l{--sx:-56px}
+    .slide-r{--sx:56px}
+    .featured .slide-l{--sx:-72px}
+    .featured .slide-r{--sx:72px}
+  }
+}
+@keyframes slideIn{from{opacity:.08;transform:translate3d(var(--sx,0),38px,0)}to{opacity:1;transform:none}}
+
+/* ---- transiciones entre páginas (View Transitions nativas, sin JS) ---- */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vtOut .22s var(--ease-out) both}
+::view-transition-new(root){animation:vtIn .34s var(--ease) both}
+@keyframes vtOut{to{opacity:0}}
+@keyframes vtIn{from{opacity:0}}
+.nav{view-transition-name:nav}
+.wa-fab{view-transition-name:wa}
+::view-transition-group(nav),::view-transition-group(wa){animation-duration:.3s}
+.vt-plate{view-transition-class:plate}
+::view-transition-group(*.plate){animation-duration:.72s;animation-timing-function:cubic-bezier(.22,1,.28,1)}
+::view-transition-old(*.plate),::view-transition-new(*.plate){height:100%;object-fit:cover}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.nav--over :focus-visible,.hero :focus-visible,.foot :focus-visible,.menu :focus-visible,.lb :focus-visible{outline-color:#fff}
+
+/* Sobre mí: contenedor de la foto de infancia (antes .only-mobile/.only-desktop) */
+.ab-cut__img{width:100%;height:100%}
+@media (min-width:1000px){.mode-desktop .ab-cut .ab-cut__img{flex:1;min-height:0;display:flex;justify-content:flex-end}}
+
+/* láminas que son <button> (abren el lightbox) */
+button.plate{display:block;padding:0;border:0;border-radius:0;font:inherit;color:inherit;text-align:inherit;-webkit-appearance:none;appearance:none}
+.frow__box svg{display:none}
+.frow.on .frow__box svg{display:block}
+@media (min-width:1000px){.menu{display:none}}

@@ -1,0 +1,25 @@
+{
+  "catalog": "JB-2024-005",
+  "year": 2024,
+  "title": "Loto",
+  "titleEn": "Loto",
+  "series": null,
+  "tech": {
+    "es": "Acrílico sobre lienzo",
+    "en": "Acrylic on canvas"
+  },
+  "dim": "100 × 85 cm",
+  "available": true,
+  "priceCOP": 450000,
+  "priceUSD": 115,
+  "featured": null,
+  "ph": "ph-stone",
+  "curatorial": {
+    "es": [
+      "Quería romper una inercia. Cambiar el ritmo con el que pinto, y entrar en una paleta que nunca había tocado: rosado, blanco, verde. La pincelada tenía que ser rápida, casi agresiva — el gesto antes que el cálculo, el miedo quedándose atrás. Los colores fueron los que me llevaron al nombre: de ahí salió \"Loto\". Lo que más me interesa de esta obra es esa fricción: una paleta delicada, casi frágil, sostenida por una gestualidad que no pide permiso. Nada en \"Loto\" es suave del todo — incluso lo tierno tiene que abrirse paso a fuerza."
+    ],
+    "en": [
+      "I wanted to break an inertia. Change the rhythm I paint with, and step into a palette I’d never touched: pink, white, green. The brushstroke had to be fast, almost aggressive — gesture before calculation, fear left behind. The colors were what led me to the name: that’s where \"Loto\" came from. What interests me most about this piece is that friction — a delicate, almost fragile palette, held up by a gestural quality that asks no permission. Nothing in \"Loto\" is entirely soft — even the tenderness has to force its way through."
+    ]
+  }
+}

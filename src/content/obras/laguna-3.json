@@ -1,0 +1,25 @@
+{
+  "catalog": "JB-2024-003",
+  "year": 2024,
+  "title": "Laguna y bruma No. 3",
+  "titleEn": "Laguna y bruma No. 3",
+  "series": "laguna",
+  "tech": {
+    "es": "Acrílico, gesso y papel de oro sobre lienzo",
+    "en": "Acrylic, gesso and gold leaf on canvas"
+  },
+  "dim": null,
+  "available": false,
+  "priceCOP": null,
+  "priceUSD": null,
+  "featured": null,
+  "ph": "ph-sage",
+  "curatorial": {
+    "es": [
+      "En las lagunas de los Andes, el agua no refleja el paisaje sino su memoria. \"Laguna y bruma\" es mi viaje a esa quietud primordial: tres obras que traducen la inmensidad del páramo colombiano en una experiencia íntima. La paleta aguamarina y las texturas brumosas no son descripciones del ecosistema, sino de lo que sentí frente a él: la escala que me redujo, la niebla que me invitó a detenerme y la claridad que fue emergiendo, lenta, mientras aprendía a mirar. Una comisión que nació del paisaje y que, desde ahora, habitará en el silencio de las paredes."
+    ],
+    "en": [
+      "In the lagoons of the Andes, the water doesn’t reflect the landscape — it reflects its memory. \"Laguna y bruma\" is my journey into that primordial stillness: three works that translate the vastness of the Colombian páramo into an intimate experience. The aquamarine palette and misty textures aren’t descriptions of the ecosystem, but of what I felt standing in front of it: the scale that reduced me, the fog that invited me to stop, and the clarity that slowly emerged as I learned how to look. A commission that was born from the landscape and will now live on, in the silence of the walls."
+    ]
+  }
+}

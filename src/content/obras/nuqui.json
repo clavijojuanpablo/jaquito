@@ -1,0 +1,27 @@
+{
+  "catalog": "JB-2026-002",
+  "year": 2026,
+  "title": "Nuquí",
+  "titleEn": "Nuquí",
+  "series": "ventanas",
+  "tech": {
+    "es": "Acrílico y óleo pastel sobre papel",
+    "en": "Acrylic and oil pastel on paper"
+  },
+  "dim": "35 × 25 cm",
+  "available": false,
+  "priceCOP": null,
+  "priceUSD": null,
+  "featured": null,
+  "ph": "ph-sage",
+  "curatorial": {
+    "es": [
+      "\"Nuquí\" es la primera ventana de la serie en abrir sus puertas. No busca representar un paisaje: construye la atmósfera que lo habita. La profundidad del verde, la humedad que se siente antes de verse, el ruido sofocante de la selva chocando contra el mar. No es la postal del Pacífico colombiano. Es la sensación de estar parado en su límite: la tierra mojada bajo una vegetación que no termina nunca, el instante exacto donde la selva se rinde ante el océano y el océano no termina de aceptarla.",
+      "\"Nuquí\" fue la primera obra de la serie en viajar. Se dejó en una casa de Berlín, escogida al azar, junto a una nota: \"Espero que ahora un pedacito de mi hogar habite el tuyo.\" Llevar un fragmento de Colombia a una ciudad a un mar de distancia, sin pedir nada a cambio. Hoy, en algún lugar de Berlín —una ciudad que contrasta en todo con el Pacífico— hay una casa con una ventana que da hacia Nuquí."
+    ],
+    "en": [
+      "\"Nuquí\" is the first window of the series to open its doors. It isn’t trying to depict a landscape — it builds the atmosphere that lives inside one. The depth of the green, the humidity you feel before you see it, the muffled roar of the jungle colliding with the sea. This isn’t the postcard version of the Colombian Pacific. It’s the feeling of standing at its edge: the wet ground beneath vegetation that never ends, the exact instant where the jungle surrenders to the ocean and the ocean still hasn’t fully accepted it.",
+      "\"Nuquí\" was the first piece in the series to travel. It was left in a house in Berlin, chosen at random, along with a note: \"I hope a small piece of my home now lives in yours.\" Carrying a fragment of Colombia to a city an ocean away, asking for nothing in return. Today, somewhere in Berlin — a city that contrasts with the Pacific in every way — there’s a house with a window looking out onto Nuquí."
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "catalog": "JB-2025-001",
+  "year": 2025,
+  "title": "Manglar",
+  "titleEn": "Manglar",
+  "series": null,
+  "tech": {
+    "es": "Acrílico y óleo pastel sobre lienzo",
+    "en": "Acrylic and oil pastel on canvas"
+  },
+  "dim": "117 × 162 cm",
+  "available": true,
+  "priceCOP": 1300000,
+  "priceUSD": 332,
+  "featured": 2,
+  "ph": "ph-ink",
+  "curatorial": {
+    "es": [
+      "Armé este lienzo yo mismo, y durante mucho tiempo colgó en blanco en el comedor de mi casa, esperando el proyecto que mereciera su tamaño. Cada vez que lo miraba pensaba lo mismo: lo que fuera a estar ahí tenía que ser suficientemente bueno para ocupar tanto espacio. Así que no pintaba. Un día dejé de esperar ese proyecto perfecto, y ahí fue cuando \"Manglar\" me encontró a mí. Quería algo imponente, denso, cargado de pintura de verdad — y encontré esa densidad en los manglares del Pacífico colombiano: el verde que se agolpa entre las ramas, el aguamarina que aparece entre la selva. El lienzo dejó de ser una amenaza el día en que encontró algo igual de grande que él."
+    ],
+    "en": [
+      "I built this canvas myself, and for a long time it hung blank in my dining room, waiting for the project that would deserve its size. Every time I looked at it I thought the same thing: whatever went there had to be good enough to fill that much space. So I didn’t paint. One day I stopped waiting for that perfect project, and that’s when \"Manglar\" found me. I wanted something imposing, dense, truly loaded with paint — and I found that density in the mangroves of the Colombian Pacific: the green that crowds between the branches, the aquamarine that surfaces through the jungle. The canvas stopped being a threat the day it found something just as big as itself."
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; id?: string; total: number }
+const { lang, id = 'filters', total } = Astro.props;
+const c = getCopy(lang);
+---
+<div class="sheet-wrap" id={id} data-sheet>
+  <div class="sheet-scrim" data-sheet-close></div>
+  <aside class="sheet" role="dialog" aria-modal="true" aria-label={c.filters} inert>
+    <div class="sheet__grab"></div>
+    <header class="sheet__top">
+      <span class="eyebrow">{c.filters}</span>
+      <button class="sheet__close" type="button" aria-label={c.close} data-sheet-close><Icon name="close" size={20} /></button>
+    </header>
+    <div class="sheet__body"><slot /></div>
+    <footer class="sheet__foot">
+      <button class="link-u" type="button" data-clear>{c.filter_clear}</button>
+      <button class="btn btn--solid" type="button" data-sheet-close><span>{c.filter_apply} · <span data-count>{String(total).padStart(2, '0')}</span></span></button>
+    </footer>
+  </aside>
+</div>

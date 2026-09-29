@@ -1,0 +1,190 @@
+---
+import Base from '../layouts/Base.astro';
+import Slot from '../components/Slot.astro';
+import Icon from '../components/Icon.astro';
+import Status from '../components/Status.astro';
+import Footer from '../components/Footer.astro';
+import { getCopy, route, formatCOP, pad2, waLink, type Lang } from '../lib/i18n';
+import { ratioOf, splitDim, workTitle, type Work } from '../lib/works';
+import { full } from '../lib/img';
+
+interface Props { lang: Lang; work: Work }
+const { lang, work: w } = Astro.props;
+const c = getCopy(lang);
+const es = lang === 'es';
+const d = splitDim(w.dim);
+const n = w.details.length;
+const paragraphs = w.curatorial?.[lang] ?? [c.lorem];
+const consult = waLink(c.consult_msg.replace('{title}', workTitle(w, lang)).replace('{cat}', w.catalog));
+const sub = `${w.tech[lang]}${w.dim ? '  ' + w.dim : ''}`;
+
+// todas las láminas visibles: la obra y sus detalles (lightbox)
+const all = [w.main, ...w.details].filter(Boolean) as NonNullable<Work['main']>[];
+const plates = await Promise.all(
+  all.map(async (img, i) => ({
+    src: await full(img),
+    ratio: `${img.width} / ${img.height}`,
+    title: workTitle(w, lang),
+    sub: i === 0 ? sub : `${es ? 'Detalle' : 'Detail'} ${pad2(i)}`
+  }))
+);
+const hasMain = !!w.main;
+const detailImgs = w.details;
+const back = { href: route('work', lang), label: c.detail_sub };
+const alt = route('work', es ? 'en' : 'es') + w.id + '/';
+const path = route('work', lang) + w.id + '/';
+---
+<Base lang={lang} current="work" path={path} altPath={alt} back={back} fab={false}
+  title={`${w.title} — Jaquito`}
+  description={`${w.title}${w.series ? ' · ' + w.series[lang] : ''}. ${w.tech[lang]}${w.dim ? ', ' + w.dim : ''}, ${w.year}.`}>
+  <div class:list={['detail', w.available && 'has-bar']}>
+    <section class="detail-top pad">
+      <div class="detail-hero-wrap">
+        <button type="button" class="plate detail-hero" data-lb={hasMain ? '0' : undefined} aria-label={es ? 'Ampliar imagen' : 'Enlarge image'}
+          style={`aspect-ratio:${ratioOf(w)};view-transition-name:work-plate`}>
+          <Slot img={w.main} ph={w.ph} label={workTitle(w, lang)} alt={w.title} eager widths={[800, 1200, 1600]} sizes="(min-width:1000px) 640px, 100vw" />
+        </button>
+      </div>
+    </section>
+
+    <div class="detail-side">
+      <section class="detail-info detail-fade">
+        <h1 class="detail-t"><span class="cond">{w.title}</span></h1>
+        {w.titleEn !== w.title && <div class="detail-en">{w.titleEn}</div>}
+        {w.series && (
+          <div class="detail-series">
+            <span>{w.series.es}</span>
+            {w.series.en !== w.series.es && <span class="en">{w.series.en}</span>}
+          </div>
+        )}
+        <div class="detail-status"><Status work={w} lang={lang} size="lg" /></div>
+
+        <dl class="specs">
+          <div class="specs__row">
+            <dt><Icon name="brush" size={15} /><span>{c.d_tech}</span></dt>
+            <dd>{w.tech[lang]}</dd>
+          </div>
+          {d ? (
+            <>
+              <div class="specs__row">
+                <dt><Icon name="height" size={15} /><span>{c.d_h}</span></dt>
+                <dd>{d.h} {d.unit}</dd>
+              </div>
+              <div class="specs__row">
+                <dt><Icon name="width" size={15} /><span>{c.d_w}</span></dt>
+                <dd>{d.w} {d.unit}</dd>
+              </div>
+            </>
+          ) : (
+            <div class="specs__row">
+              <dt><Icon name="height" size={15} /><span>{c.d_dim}</span></dt>
+              <dd>{c.dim_na}</dd>
+            </div>
+          )}
+          <div class="specs__row">
+            <dt><Icon name="calendar" size={15} /><span>{c.d_year}</span></dt>
+            <dd>{w.year}</dd>
+          </div>
+        </dl>
+
+        {w.available && w.priceCOP != null && (
+          <div class="detail-buy">
+            <div class="buybar__price">
+              <span class="cop">{formatCOP(w.priceCOP)}<span class="cur"> COP</span></span>
+              <span class="usd">≈ ${w.priceUSD} USD</span>
+            </div>
+            <a class="buybar__cta" href={consult} target="_blank" rel="noreferrer">
+              <Icon name="whatsapp" size={17} /><span>{c.buy_cta}</span>
+            </a>
+          </div>
+        )}
+      </section>
+    </div>
+
+    {n > 0 && (
+      <section class="details reveal">
+        <div class="pad details__head">
+          <span class="eyebrow">{n === 1 ? c.details_one : c.details_title}</span>
+          <span class="folio">{pad2(n)}</span>
+        </div>
+        {n === 1 ? (
+          <div class="pad">
+            <button type="button" class="plate dsolo" data-lb="1" aria-label={es ? 'Ampliar detalle' : 'Enlarge detail'} style={`aspect-ratio:1 / 1`}>
+              <Slot img={detailImgs[0]} ph={w.ph} label={`${workTitle(w, lang)} ${c.details_one}`} alt={`${w.title} — ${c.details_one}`} widths={[480, 800, 1200]} sizes="(min-width:1000px) 132px, 100vw" />
+            </button>
+          </div>
+        ) : (
+          <>
+            <div class="drail-wrap">
+              <div class="drail" data-drail>
+                {detailImgs.map((img, k) => (
+                  <figure class="drail__item">
+                    <button type="button" class="plate" data-lb={k + 1} aria-label={`${es ? 'Ampliar detalle' : 'Enlarge detail'} ${k + 1}`}>
+                      <Slot img={img} ph={w.ph} label={String(k + 1)} alt={`${w.title} — ${c.details_one} ${k + 1}`} widths={[480, 800, 1200]} sizes="(min-width:1000px) 132px, 76vw" />
+                    </button>
+                  </figure>
+                ))}
+              </div>
+              <button class="drail__nav prev" type="button" aria-label={c.prev} data-drail-prev><Icon name="arrow-left" size={18} /></button>
+              <button class="drail__nav next" type="button" aria-label={c.next} data-drail-next><Icon name="arrow-right" size={18} /></button>
+            </div>
+            <div class="dots pad" data-drail-dots>
+              {detailImgs.map((_, k) => <button type="button" class:list={['dot', k === 0 && 'on']} aria-label={String(k + 1)} data-dot={k}></button>)}
+            </div>
+          </>
+        )}
+      </section>
+    )}
+
+    <section class="pad curatorial reveal">
+      <div class="eyebrow" style="margin-bottom:16px">{c.curatorial}</div>
+      {paragraphs.map((p, i) => <p class="body" style={i ? 'margin-top:18px' : undefined}>{p}</p>)}
+    </section>
+
+    <Footer lang={lang} />
+  </div>
+
+  <Fragment slot="overlays">
+    {w.available && w.priceCOP != null && (
+      <div class="buybar">
+        <div class="buybar__price">
+          <span class="cop">{formatCOP(w.priceCOP)}<span class="cur"> COP</span></span>
+          <span class="usd">≈ ${w.priceUSD} USD</span>
+        </div>
+        <a class="buybar__cta" href={consult} target="_blank" rel="noreferrer">
+          <Icon name="whatsapp" size={17} /><span>{c.buy_cta}</span>
+        </a>
+      </div>
+    )}
+    {plates.length > 0 && (
+      <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label={w.title} inert>
+        <div class="lb__top">
+          <span class="lb__count" data-lb-count></span>
+          <button class="lb__close" type="button" aria-label={c.close} data-lb-close><Icon name="close" size={22} /></button>
+        </div>
+        <div class="lb__stage" data-lb-stage>
+          {plates.length > 1 && (
+            <>
+              <button class="lb__nav prev" type="button" aria-label={c.prev} data-lb-prev><Icon name="arrow-left" size={20} /></button>
+              <button class="lb__nav next" type="button" aria-label={c.next} data-lb-next><Icon name="arrow-right" size={20} /></button>
+            </>
+          )}
+          <div class="lb__view" data-lb-view><img alt="" draggable="false" /></div>
+        </div>
+        <div class="lb__info">
+          <div class="t" data-lb-title></div>
+          <div class="m" data-lb-sub></div>
+          {plates.length > 1 && (
+            <div class="dots lb__dots">
+              {plates.map((_, k) => <button type="button" class="dot" aria-label={String(k + 1)} data-lb-dot={k}></button>)}
+            </div>
+          )}
+        </div>
+        <script type="application/json" id="lb-data" set:html={JSON.stringify(plates)} />
+      </div>
+    )}
+  </Fragment>
+  <script>
+    import '../scripts/detail.ts';
+  </script>
+</Base>

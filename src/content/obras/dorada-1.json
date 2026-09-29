@@ -1,0 +1,25 @@
+{
+  "catalog": "JB-2023-001",
+  "year": 2023,
+  "title": "La ciudad dorada No. 1",
+  "titleEn": "La ciudad dorada No. 1",
+  "series": "dorada",
+  "tech": {
+    "es": "Acrílico, gesso y papel de oro sobre lienzo",
+    "en": "Acrylic, gesso and gold leaf on canvas"
+  },
+  "dim": null,
+  "available": false,
+  "priceCOP": null,
+  "priceUSD": null,
+  "featured": null,
+  "ph": "ph-ochre",
+  "curatorial": {
+    "es": [
+      "Antes de saber qué iba a pintar, sabía dos cosas: tenía que hablar de Colombia y tenía que ser neutro. Fue mi primer encargo real, y en esa libertad encontré una obsesión que ya traía conmigo: la leyenda de El Dorado. No quise pintarla — quise pintar la sensación de perseguirla. \"La ciudad dorada No. 1\" es esa bruma espesa, gris, casi de ensoñación, donde el ojo tarda en acomodarse. Y ahí, al fondo, más por azar que por certeza, algo brilla: edificios tambaleantes, un oro que aparece y podría no estar. El papel de oro sobre gesso no ilustra el tesoro — lo deja asomarse apenas, como se asoma cualquier leyenda: a medias, y solo para quien se queda mirando."
+    ],
+    "en": [
+      "Before I knew what I was going to paint, I knew two things: it had to speak about Colombia, and it had to be neutral. It was my first real commission, and inside that freedom I found an obsession I was already carrying: the legend of El Dorado. I didn’t want to paint the legend — I wanted to paint the feeling of chasing it. \"La ciudad dorada No. 1\" is that thick, gray, almost dreamlike fog where the eye takes a moment to adjust. And there, in the background, more by chance than by certainty, something shines: swaying buildings, a gold that appears and might not be there at all. The gold leaf over gesso doesn’t illustrate the treasure — it lets it barely surface, the way any legend surfaces: halfway, and only for those who stay looking."
+    ]
+  }
+}

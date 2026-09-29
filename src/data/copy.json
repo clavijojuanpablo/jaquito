@@ -1,0 +1,354 @@
+{
+  "es": {
+    "nav": {
+      "inicio": "Inicio",
+      "obra": "Obra",
+      "disponibles": "Disponibles",
+      "sobre": "Sobre mí",
+      "contacto": "Contacto"
+    },
+    "role": "Pintura · Medellín",
+    "hero_role": "Artista visual · Medellín, Colombia",
+    "intro_eyebrow": "Pintura contemporánea",
+    "intro": "Pinto atmósferas para volver a mí.",
+    "featured_eyebrow": "Selección",
+    "featured_title": "Obras destacadas",
+    "cta_full": "Ver obra completa",
+    "cta_avail": "Obras disponibles",
+    "scroll": "Scroll",
+    "obra_title": "Obra",
+    "obra_sub": "Archivo · 2023 — 2026",
+    "filters": "Filtros",
+    "filter_clear": "Limpiar",
+    "filter_apply": "Ver obras",
+    "f_year": "Fecha",
+    "f_series": "Serie",
+    "f_status": "Estado",
+    "all": "Todas",
+    "no_series": "Sin serie",
+    "works_count": "obras",
+    "no_results": "Ninguna obra coincide con estos filtros.",
+    "view_work": "Ver obra",
+    "back_archive": "Volver al archivo",
+    "dim_na": "Medidas no especificadas",
+    "sheet_title": "Ficha técnica",
+    "d_tech": "Técnica",
+    "d_dim": "Medidas",
+    "d_year": "Año",
+    "d_cat": "No. catálogo",
+    "d_series": "Serie",
+    "curatorial": "Texto curatorial",
+    "details_title": "Detalles",
+    "details_one": "Detalle",
+    "about_work": "Sobre esta obra",
+    "price_label": "Precio",
+    "consult_avail": "Consultar disponibilidad",
+    "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat cupidatat non proident.",
+    "disp_title": "Disponibles",
+    "disp_sub": "Obras originales disponibles para adquirir. Cada una con certificado de autenticidad.",
+    "badge_avail": "Disponible",
+    "badge_sold": "No disponible",
+    "badge_soldout": "Vendida",
+    "detail_sub": "Volver",
+    "view_mode": "Vista",
+    "view_list": "Lista",
+    "view_grid": "Dos columnas",
+    "ship_t": "Envíos a todo el mundo",
+    "ship_d": "Empaque de museo y envío asegurado. Entrega sin costo en Medellín.",
+    "d_h": "Alto",
+    "d_w": "Ancho",
+    "series_of": "Serie",
+    "buy_cta": "Contactar para comprar",
+    "zoom_hint": "Doble tap para zoom · desliza para navegar",
+    "sold": "No disponible",
+    "consult": "Consultar por esta obra",
+    "process_title": "Cómo funciona",
+    "process": [
+      {
+        "t": "Contacto directo",
+        "d": "Escríbeme por WhatsApp o correo. Respondo cada mensaje personalmente.",
+        "icon": "chat"
+      },
+      {
+        "t": "Pago y envío",
+        "d": "Coordinamos el pago y el envío asegurado a cualquier ciudad. Entrega en Medellín sin costo.",
+        "icon": "package"
+      },
+      {
+        "t": "Certificado",
+        "d": "Cada obra llega firmada y con su certificado de autenticidad.",
+        "icon": "seal"
+      }
+    ],
+    "about_eyebrow": "Sobre mí",
+    "about_title": "Jaquito",
+    "about_bio": [
+      "Nací y pinto en Medellín. Empecé en una mesa de cocina, copiando la luz que entraba por la ventana a las cinco de la tarde, y nunca paré.",
+      "Trabajo con acrílico y óleo pastel sobre lienzo. Me interesa lo que pasa entre el color y la memoria: un cerro, una esquina, una cara que ya no recuerdo bien. Pinto rápido y corrijo despacio.",
+      "Busco que mi pintura encuentre casas, paredes y personas que la miren todos los días. Si llegaste hasta aquí, gracias por mirar."
+    ],
+    "facts": [
+      {
+        "k": "Ciudad",
+        "v": "Medellín, Colombia"
+      },
+      {
+        "k": "Desde",
+        "v": "2019"
+      },
+      {
+        "k": "Técnica",
+        "v": "Acrílico y óleo pastel"
+      }
+    ],
+    "about_cta": "Contactar",
+    "about_link": "Sobre mí",
+    "manifesto": "Todo empezó con una foto de un niño pintando sin miedo.",
+    "who_t": "Quién es Jaquito",
+    "who_p": [
+      "Soy Jacobo Bedoya, pero desde niño me dicen Jaquito. Vivo y pinto en Medellín. Tengo 25 años y llevo el último tiempo explorando la pintura abstracta: el color y la forma como un lenguaje para decir lo que las palabras no alcanzan.",
+      "El nombre nace de una fotografía. Ahí aparezco a los diez años, pintando un cuadro abstracto con esa concentración que solo tienen los niños que todavía no le temen a nada. Jaquito era como me decía mi mamá. Con el tiempo dejé el pincel a un lado, algo que la vida adulta suele hacer, pero esa foto se quedó esperando.",
+      "Volver a pintar fue volver justo a ese punto: a los diez años, a la abstracción, al impulso de crear sin pedir permiso. Cada obra es un intento de reconectar con ese niño y, de paso, construir un lenguaje visual que también le hable a quien la mira."
+    ],
+    "focus_eyebrow": "El enfoque",
+    "focus_t": "Atmósferas abstractas",
+    "focus_p": [
+      "Pinto para responder una sola pregunta: quién sería si nunca hubiera dejado de crear. Cada atmósfera es un intento de volver a los diez años, cuando pintaba sin pensarlo ni pedir permiso, y dialogar desde ahí con quien fui.",
+      "No pinto un motivo, pinto el ambiente que lo envuelve: ese feeling que se siente al estar ahí, sin necesidad de ninguna figura reconocible. Empiezo con brochas grandes y gestos rápidos; termino con pinceles pequeños que afinan foco y contraste. En el lienzo conviven esas dos versiones de mí."
+    ],
+    "docs_t": "Documentos",
+    "docs": [
+      {
+        "t": "CV / Hoja de vida",
+        "m": "PDF",
+        "f": "docs/jaquito-cv-es.pdf"
+      },
+      {
+        "t": "Artist Statement",
+        "m": "PDF",
+        "f": "docs/jaquito-statement-es.pdf"
+      },
+      {
+        "t": "Dossier / Press Kit",
+        "m": "PDF",
+        "f": "docs/jaquito-dossier-es.pdf"
+      }
+    ],
+    "close_t": "Para consultas de representación, prensa o colecciones",
+    "studio_alt": "El artista pintando en su estudio",
+    "childhood_alt": "Fotografía de infancia",
+    "studio_cap": "Jaquito pintando, 2010.",
+    "sort_label": "Ordenar",
+    "sort_recent": "Más recientes",
+    "sort_desc": "Precio: mayor a menor",
+    "sort_asc": "Precio: menor a mayor",
+    "range_label": "Rango de precio",
+    "r_low": "Hasta $500.000",
+    "r_mid": "$500.000 a $1.000.000",
+    "r_high": "Más de $1.000.000",
+    "contact_title": "Contacto",
+    "contact_sub": "Para adquirir una obra, una exposición o simplemente saludar.",
+    "f_name": "Nombre",
+    "f_email": "Correo",
+    "f_msg": "Mensaje",
+    "f_name_ph": "Tu nombre",
+    "f_email_ph": "tucorreo@ejemplo.com",
+    "f_msg_ph": "Cuéntame en qué piensas…",
+    "f_send": "Enviar mensaje",
+    "err_email_empty": "Escribe tu correo.",
+    "err_email_bad": "Revisa tu correo. Falta el @ o el dominio.",
+    "err_name_empty": "Escribe tu nombre.",
+    "err_name_bad": "Escribe tu nombre completo.",
+    "err_msg_empty": "Escribe tu mensaje.",
+    "err_msg_bad": "Cuéntame un poco más, al menos 10 caracteres.",
+    "success_t": "Mensaje enviado",
+    "success_d": "Gracias. Te respondo personalmente muy pronto.",
+    "wa_label": "WhatsApp",
+    "wa_big": "Escríbeme por WhatsApp",
+    "email_label": "Correo",
+    "copied": "¡Copiado!",
+    "ig_label": "Instagram",
+    "direct": "Directo",
+    "consult_msg": "Hola Jaquito, me interesa la obra «{title}» ({cat}). ¿Sigue disponible?",
+    "err_send": "No se pudo enviar el mensaje. Escríbeme por WhatsApp o correo.",
+    "close": "Cerrar",
+    "prev": "Anterior",
+    "next": "Siguiente"
+  },
+  "en": {
+    "nav": {
+      "inicio": "Home",
+      "obra": "Work",
+      "disponibles": "Available",
+      "sobre": "About",
+      "contacto": "Contact"
+    },
+    "role": "Painting · Medellín",
+    "hero_role": "Visual artist · Medellín, Colombia",
+    "intro_eyebrow": "Contemporary painting",
+    "intro": "I paint atmospheres to return to myself.",
+    "featured_eyebrow": "Selection",
+    "featured_title": "Featured work",
+    "cta_full": "See full work",
+    "cta_avail": "Available work",
+    "scroll": "Scroll",
+    "obra_title": "Work",
+    "obra_sub": "Archive · 2023 — 2026",
+    "filters": "Filters",
+    "filter_clear": "Clear",
+    "filter_apply": "See works",
+    "f_year": "Date",
+    "f_series": "Series",
+    "f_status": "Status",
+    "all": "All",
+    "no_series": "No series",
+    "works_count": "works",
+    "no_results": "No work matches these filters.",
+    "view_work": "View work",
+    "back_archive": "Back to archive",
+    "dim_na": "Dimensions not specified",
+    "sheet_title": "Technical sheet",
+    "d_tech": "Medium",
+    "d_dim": "Dimensions",
+    "d_year": "Year",
+    "d_cat": "Catalogue no.",
+    "d_series": "Series",
+    "curatorial": "Curatorial text",
+    "details_title": "Details",
+    "details_one": "Detail",
+    "about_work": "About this work",
+    "price_label": "Price",
+    "consult_avail": "Ask about availability",
+    "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat cupidatat non proident.",
+    "disp_title": "Available",
+    "disp_sub": "Original works available to acquire. Each one with a certificate of authenticity.",
+    "badge_avail": "Available",
+    "badge_sold": "Not available",
+    "badge_soldout": "Sold",
+    "detail_sub": "Back",
+    "view_mode": "View",
+    "view_list": "List",
+    "view_grid": "Two columns",
+    "ship_t": "Worldwide shipping",
+    "ship_d": "Museum-grade packing and insured shipping. Free delivery in Medellín.",
+    "d_h": "Height",
+    "d_w": "Width",
+    "series_of": "Series",
+    "buy_cta": "Contact to purchase",
+    "zoom_hint": "Double-tap to zoom · swipe to browse",
+    "sold": "Not available",
+    "consult": "Ask about this work",
+    "process_title": "How it works",
+    "process": [
+      {
+        "t": "Direct contact",
+        "d": "Write me on WhatsApp or email. I answer every message myself.",
+        "icon": "chat"
+      },
+      {
+        "t": "Payment & shipping",
+        "d": "We arrange payment and insured shipping to any city. Free delivery in Medellín.",
+        "icon": "package"
+      },
+      {
+        "t": "Certificate",
+        "d": "Every work arrives signed and with its certificate of authenticity.",
+        "icon": "seal"
+      }
+    ],
+    "about_eyebrow": "About",
+    "about_title": "Jaquito",
+    "about_bio": [
+      "I was born and paint in Medellín. I started at a kitchen table, copying the light that came through the window at five in the afternoon, and never stopped.",
+      "I work with acrylic and oil pastel on canvas. I am drawn to what happens between color and memory: a hill, a corner, a face I no longer remember well. I paint fast and correct slowly.",
+      "I want my painting to find homes, walls and people who look at it every day. If you made it this far, thank you for looking."
+    ],
+    "facts": [
+      {
+        "k": "City",
+        "v": "Medellín, Colombia"
+      },
+      {
+        "k": "Since",
+        "v": "2019"
+      },
+      {
+        "k": "Medium",
+        "v": "Acrylic & oil pastel"
+      }
+    ],
+    "about_cta": "Get in touch",
+    "about_link": "About",
+    "manifesto": "It all started with a photo of a child painting without fear.",
+    "who_t": "Who is Jaquito",
+    "who_p": [
+      "I am Jacobo Bedoya, but since I was a kid people have called me Jaquito. I live and paint in Medellín. I am 25 years old and have spent the last while exploring abstract painting: color and form as a language for saying what words cannot.",
+      "The name comes from a photograph. In it I appear at ten years old, painting an abstract picture with that focus only kids who are not yet afraid of anything have. Jaquito was what my mom called me. Over time I set the brush aside, the way adult life tends to make you, but that photo kept waiting.",
+      "Coming back to painting meant going back to exactly that point: to being ten years old, to abstraction, to the drive to create without asking permission. Every piece is an attempt to reconnect with that kid and, in the process, build a visual language that speaks to whoever looks at it too."
+    ],
+    "focus_eyebrow": "The approach",
+    "focus_t": "Abstract atmospheres",
+    "focus_p": [
+      "I paint to answer a single question: who I would be if I had never stopped creating. Every atmosphere is an attempt to return to being ten years old, when I painted without thinking twice or asking permission, and to speak with that version of myself.",
+      "I don’t paint a subject, I paint the mood around it: the feeling of being there, with no need for a recognizable figure. I start with large brushes and fast gestures; I finish with small brushes that sharpen focus and contrast. Both versions of me live together on the canvas."
+    ],
+    "docs_t": "Documents",
+    "docs": [
+      {
+        "t": "CV / Résumé",
+        "m": "PDF",
+        "f": "docs/jaquito-cv-en.pdf"
+      },
+      {
+        "t": "Artist Statement",
+        "m": "PDF",
+        "f": "docs/jaquito-statement-en.pdf"
+      },
+      {
+        "t": "Dossier / Press Kit",
+        "m": "PDF",
+        "f": "docs/jaquito-dossier-en.pdf"
+      }
+    ],
+    "close_t": "For representation, press or collection enquiries",
+    "studio_alt": "The artist painting in the studio",
+    "childhood_alt": "Childhood photograph",
+    "studio_cap": "Jaquito painting, 2010.",
+    "sort_label": "Sort",
+    "sort_recent": "Most recent",
+    "sort_desc": "Price: high to low",
+    "sort_asc": "Price: low to high",
+    "range_label": "Price range",
+    "r_low": "Up to $500,000",
+    "r_mid": "$500,000 to $1,000,000",
+    "r_high": "Over $1,000,000",
+    "contact_title": "Contact",
+    "contact_sub": "To acquire a work, for an exhibition, or just to say hello.",
+    "f_name": "Name",
+    "f_email": "Email",
+    "f_msg": "Message",
+    "f_name_ph": "Your name",
+    "f_email_ph": "you@example.com",
+    "f_msg_ph": "Tell me what you have in mind…",
+    "f_send": "Send message",
+    "err_email_empty": "Enter your email.",
+    "err_email_bad": "Check your email. The @ or domain is missing.",
+    "err_name_empty": "Enter your name.",
+    "err_name_bad": "Enter your full name.",
+    "err_msg_empty": "Enter your message.",
+    "err_msg_bad": "Tell me a little more, at least 10 characters.",
+    "success_t": "Message sent",
+    "success_d": "Thank you. I will reply to you personally very soon.",
+    "wa_label": "WhatsApp",
+    "wa_big": "Message me on WhatsApp",
+    "email_label": "Email",
+    "copied": "Copied!",
+    "ig_label": "Instagram",
+    "direct": "Direct",
+    "consult_msg": "Hi Jaquito, I am interested in “{title}” ({cat}). Is it still available?",
+    "err_send": "The message could not be sent. Write me on WhatsApp or email.",
+    "close": "Close",
+    "prev": "Previous",
+    "next": "Next"
+  }
+}

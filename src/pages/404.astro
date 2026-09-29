@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Btn from '../components/Btn.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base lang="es" path="/404/" altPath="/en/" fab={false} title="No encontrada — Jaquito">
+  <section class="pad page-head">
+    <h1 class="ptitle">404</h1>
+    <p class="body sub" style="margin-top:16px">Esta página no existe. / This page doesn’t exist.</p>
+    <div class="intro-cta"><Btn label="Inicio · Home" href="/" variant="btn--accent" icon="arrow-right" /></div>
+  </section>
+  <div style="height:120px"></div>
+  <Footer lang="es" />
+</Base>

@@ -1,0 +1,29 @@
+---
+/** Tarjeta de obra: la misma en Inicio, Obra y Disponibles. */
+import Slot from './Slot.astro';
+import { getCopy, workHref, formatCOP, type Lang } from '../lib/i18n';
+import { ratioOf, workTitle, type Work } from '../lib/works';
+
+interface Props { w: Work; lang: Lang; price?: boolean; sizes?: string; eager?: boolean }
+const { w, lang, price = false, sizes = '(min-width:1000px) 33vw, 100vw', eager = false } = Astro.props;
+const c = getCopy(lang);
+const href = workHref(w.id, lang);
+---
+<a class="plate arch-item__media" href={href} data-work={w.id} style={`aspect-ratio:${ratioOf(w)}`} tabindex="-1" aria-hidden="true">
+  <Slot img={w.main} ph={w.ph} label={workTitle(w, lang)} alt={w.title} sizes={sizes} eager={eager} />
+  <span class="plate-veil"></span>
+  <span class="plate-cta">{c.view_work}</span>
+</a>
+<a class="arch-item__info wlink" href={href}>
+  <div class="arch-row">
+    <h2 class="arch-item__t"><span class="cond">{w.title}</span></h2>
+    {w.dim && <div class="arch-item__dim arch-item__dim--inline">{w.dim}</div>}
+  </div>
+  {w.series && <div class="arch-item__series">{w.series[lang]}</div>}
+  {price && w.available && w.priceCOP != null && (
+    <div class="buybar__price card-price">
+      <span class="cop">{formatCOP(w.priceCOP)}<span class="cur"> COP</span></span>
+      <span class="usd">≈ ${w.priceUSD} USD</span>
+    </div>
+  )}
+</a>

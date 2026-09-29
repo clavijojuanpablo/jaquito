@@ -1,0 +1,25 @@
+{
+  "catalog": "JB-2025-003",
+  "year": 2025,
+  "title": "Bocanada",
+  "titleEn": "Bocanada",
+  "series": null,
+  "tech": {
+    "es": "Acrílico y óleo pastel sobre lienzo",
+    "en": "Acrylic and oil pastel on canvas"
+  },
+  "dim": "100 × 85 cm",
+  "available": true,
+  "priceCOP": 500000,
+  "priceUSD": 128,
+  "featured": null,
+  "ph": "ph-olive",
+  "curatorial": {
+    "es": [
+      "\"Bocanada\" nació de dos ganas al mismo tiempo: usar una paleta que no había tocado —un azul profundo, casi nocturno— y pintar algo que no fuera un paisaje ni una emoción sin nombre, sino música. Crecí escuchando a Gustavo Cerati porque mi mamá lo puso primero, y de sus discos el que más quiero es justo este: Bocanada, no solo por las canciones sino por su portada, esa dirección artística tan suya. Quise pintar esa atmósfera — la noche densa, el azul que casi no deja respirar, el humo que lo envuelve todo, y esos puntos rojos flotando como si fueran lo único que todavía se mueve. No es un homenaje literal al disco. Es lo que queda de él cuando cierro los ojos."
+    ],
+    "en": [
+      "\"Bocanada\" was born from two urges at once: to use a palette I’d never touched — a deep, almost nocturnal blue — and to paint something that wasn’t a landscape or an unnamed emotion, but music. I grew up listening to Gustavo Cerati because my mom played him first, and of all his records, the one I love most is this one: Bocanada — not just for the songs, but for its cover, its own particular art direction. I wanted to paint that atmosphere — the dense night, the blue that barely lets you breathe, the smoke that wraps around everything, and those red dots floating as if they were the only thing still moving. This isn’t a literal homage to the record. It’s what’s left of it when I close my eyes."
+    ]
+  }
+}

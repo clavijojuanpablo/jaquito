@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+interface Props { group: string; value: string | number; label: string; count?: number; single?: boolean; on?: boolean }
+const { group, value, label, count, single = false, on = false } = Astro.props;
+---
+<button type="button" class:list={['frow', on && 'on']} data-group={group} data-value={value} data-single={single ? '1' : undefined} aria-pressed={on ? 'true' : 'false'}>
+  <span class="frow__box"><Icon name="check" size={12} stroke={2.4} /></span>
+  <span class="frow__lbl">{label}</span>
+  {count != null && <span class="frow__n">{String(count).padStart(2, '0')}</span>}
+</button>
