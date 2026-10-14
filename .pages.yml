@@ -117,7 +117,7 @@ content:
         type: object
         fields:
           - { name: email, label: Correo, type: string }
-          - { name: whatsapp, label: WhatsApp (solo números, con 57), type: string, description: Ej. 573012386897 }
+          - { name: whatsapp, label: "WhatsApp (solo números, con 57)", type: string, description: "Ej. 573012386897" }
           - { name: whatsappPretty, label: WhatsApp como se muestra, type: string, description: Ej. +57 301 238 6897 }
           - { name: instagram, label: Usuario de Instagram, type: string }
           - { name: instagramUrl, label: Enlace de Instagram, type: string }
