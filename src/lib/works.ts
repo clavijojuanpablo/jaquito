@@ -1,17 +1,29 @@
 import { getCollection } from 'astro:content';
 import type { ImageMetadata } from 'astro';
-import { SERIES, type Lang } from './i18n';
+import { SERIES, COP_PER_USD, type Lang } from './i18n';
 
 /**
- * FOTOS DE LAS OBRAS — sin tocar código:
- *   src/assets/obras/<id-de-la-obra>/principal.jpg   ← la obra
- *   src/assets/obras/<id-de-la-obra>/detalle-1.jpg   ← fotos de detalle (en orden alfabético/numérico)
+ * FOTOS DE LAS OBRAS
+ *  1. Si la obra tiene "foto" / "detalles" (lo que guarda el panel), se usan esas rutas.
+ *  2. Si no, se toman de la carpeta, sin tocar código:
+ *       src/assets/obras/<id-de-la-obra>/principal.jpg   ← la obra
+ *       src/assets/obras/<id-de-la-obra>/detalle-1.jpg   ← fotos de detalle (en orden alfabético/numérico)
  * Cualquier tamaño y formato (jpg, png, webp, avif): el sitio genera las versiones optimizadas.
  */
 const modules = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/obras/*/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
+  '/src/assets/obras/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
   { eager: true }
 );
+
+/** "/src/assets/obras/aura/x.jpg", "src/assets/obras/aura/x.jpg", "aura/x.jpg"… → la imagen */
+function resolvePath(ref: string | null | undefined, id: string): ImageMetadata | null {
+  if (!ref) return null;
+  const clean = ref.replace(/\\/g, '/').replace(/^\.?\/+/, '');
+  const i = clean.indexOf('assets/obras/');
+  const hit = modules[`/src/${i >= 0 ? clean.slice(i) : `assets/obras/${clean}`}`];
+  if (!hit) console.warn(`[obras] ${id}: no encuentro la foto "${ref}", se ignora`);
+  return hit?.default ?? null;
+}
 
 const MAIN_NAMES = /^(principal|main|portada|cover)$/i;
 const natural = new Intl.Collator('es', { numeric: true, sensitivity: 'base' });
@@ -63,13 +75,23 @@ export async function getWorks(): Promise<Work[]> {
   const works = entries.map((e): Work => {
     const files = (byFolder.get(e.id) ?? []).slice().sort((a, b) => natural.compare(a.name, b.name));
     const mainFile = files.find((f) => MAIN_NAMES.test(f.name)) ?? files[0];
+    const { foto, detalles, curatorial, tech, ...data } = e.data;
+    const listed = (detalles ?? []).map((d) => resolvePath(d, e.id)).filter((x): x is ImageMetadata => !!x);
+    // si falta un idioma se usa el otro
+    const cEs = curatorial?.es?.filter((p) => p.trim()) ?? [];
+    const cEn = curatorial?.en?.filter((p) => p.trim()) ?? [];
     return {
       id: e.id,
-      ...e.data,
-      titleEn: e.data.titleEn ?? e.data.title,
-      series: SERIES.find((s) => s.id === e.data.series) ?? null,
-      main: mainFile?.img ?? null,
-      details: files.filter((f) => f !== mainFile).map((f) => f.img)
+      ...data,
+      catalog: data.catalog ?? '',
+      titleEn: data.titleEn ?? data.title,
+      tech: { es: tech.es, en: tech.en ?? tech.es },
+      priceUSD: data.priceUSD ?? (data.priceCOP != null ? Math.round(data.priceCOP / COP_PER_USD) : null),
+      curatorial: cEs.length || cEn.length ? { es: cEs.length ? cEs : cEn, en: cEn.length ? cEn : cEs } : null,
+      series: SERIES.find((s) => s.id === data.series) ?? null,
+      // con "foto" manda el panel; sin ella, la carpeta
+      main: foto ? resolvePath(foto, e.id) : (mainFile?.img ?? null),
+      details: foto ? listed : files.filter((f) => f !== mainFile).map((f) => f.img)
     };
   });
   // más reciente primero: por año y luego por número de catálogo

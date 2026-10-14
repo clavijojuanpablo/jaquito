@@ -21,5 +21,11 @@
     "en": [
       "I wanted to break an inertia. Change the rhythm I paint with, and step into a palette I’d never touched: pink, white, green. The brushstroke had to be fast, almost aggressive — gesture before calculation, fear left behind. The colors were what led me to the name: that’s where \"Loto\" came from. What interests me most about this piece is that friction — a delicate, almost fragile palette, held up by a gestural quality that asks no permission. Nothing in \"Loto\" is entirely soft — even the tenderness has to force its way through."
     ]
-  }
+  },
+  "foto": "/src/assets/obras/loto/principal.webp",
+  "detalles": [
+    "/src/assets/obras/loto/detalle-1.webp",
+    "/src/assets/obras/loto/detalle-2.webp",
+    "/src/assets/obras/loto/detalle-3.webp"
+  ]
 }

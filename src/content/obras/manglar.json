@@ -21,5 +21,13 @@
     "en": [
       "I built this canvas myself, and for a long time it hung blank in my dining room, waiting for the project that would deserve its size. Every time I looked at it I thought the same thing: whatever went there had to be good enough to fill that much space. So I didn’t paint. One day I stopped waiting for that perfect project, and that’s when \"Manglar\" found me. I wanted something imposing, dense, truly loaded with paint — and I found that density in the mangroves of the Colombian Pacific: the green that crowds between the branches, the aquamarine that surfaces through the jungle. The canvas stopped being a threat the day it found something just as big as itself."
     ]
-  }
+  },
+  "foto": "/src/assets/obras/manglar/principal.webp",
+  "detalles": [
+    "/src/assets/obras/manglar/detalle-1.webp",
+    "/src/assets/obras/manglar/detalle-2.webp",
+    "/src/assets/obras/manglar/detalle-3.webp",
+    "/src/assets/obras/manglar/detalle-4.webp",
+    "/src/assets/obras/manglar/detalle-5.webp"
+  ]
 }

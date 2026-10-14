@@ -14,7 +14,7 @@ const c = getCopy(lang);
 const es = lang === 'es';
 const d = splitDim(w.dim);
 const n = w.details.length;
-const paragraphs = w.curatorial?.[lang] ?? [c.lorem];
+const paragraphs = w.curatorial?.[lang] ?? [];
 const consult = waLink(c.consult_msg.replace('{title}', workTitle(w, lang)).replace('{cat}', w.catalog));
 const sub = `${w.tech[lang]}${w.dim ? '  ' + w.dim : ''}`;
 
@@ -136,10 +136,12 @@ const path = route('work', lang) + w.id + '/';
       </section>
     )}
 
-    <section class="pad curatorial reveal">
-      <div class="eyebrow" style="margin-bottom:16px">{c.curatorial}</div>
-      {paragraphs.map((p, i) => <p class="body" style={i ? 'margin-top:18px' : undefined}>{p}</p>)}
-    </section>
+    {paragraphs.length > 0 && (
+      <section class="pad curatorial reveal">
+        <div class="eyebrow" style="margin-bottom:16px">{c.curatorial}</div>
+        {paragraphs.map((p, i) => <p class="body" style={i ? 'margin-top:18px' : undefined}>{p}</p>)}
+      </section>
+    )}
 
     <Footer lang={lang} />
   </div>

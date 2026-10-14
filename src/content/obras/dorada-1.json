@@ -21,5 +21,12 @@
     "en": [
       "Before I knew what I was going to paint, I knew two things: it had to speak about Colombia, and it had to be neutral. It was my first real commission, and inside that freedom I found an obsession I was already carrying: the legend of El Dorado. I didn’t want to paint the legend — I wanted to paint the feeling of chasing it. \"La ciudad dorada No. 1\" is that thick, gray, almost dreamlike fog where the eye takes a moment to adjust. And there, in the background, more by chance than by certainty, something shines: swaying buildings, a gold that appears and might not be there at all. The gold leaf over gesso doesn’t illustrate the treasure — it lets it barely surface, the way any legend surfaces: halfway, and only for those who stay looking."
     ]
-  }
+  },
+  "foto": "/src/assets/obras/dorada-1/principal.webp",
+  "detalles": [
+    "/src/assets/obras/dorada-1/detalle-1.webp",
+    "/src/assets/obras/dorada-1/detalle-2.webp",
+    "/src/assets/obras/dorada-1/detalle-3.webp",
+    "/src/assets/obras/dorada-1/detalle-4.webp"
+  ]
 }

@@ -5,8 +5,13 @@ export type Lang = 'es' | 'en';
 export type Copy = (typeof copy)['es'];
 export const LANGS: Lang[] = ['es', 'en'];
 export const CONTACT = site.contact;
-export const SERIES = site.series as { id: string; es: string; en: string }[];
-export const YEARS = site.years as number[];
+export const SERIES = (site.series as { id: string; es: string; en?: string | null }[]).map((s) => ({
+  id: s.id,
+  es: s.es,
+  en: s.en || s.es
+}));
+/** pesos por dólar, para el "≈ $ USD" cuando una obra no tiene priceUSD */
+export const COP_PER_USD = Number(site.copPorUsd) || 3915;
 
 export const getCopy = (lang: Lang): Copy => copy[lang] as Copy;
 

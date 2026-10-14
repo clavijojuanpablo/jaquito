@@ -21,5 +21,9 @@
     "en": [
       "\"Bocanada\" was born from two urges at once: to use a palette I’d never touched — a deep, almost nocturnal blue — and to paint something that wasn’t a landscape or an unnamed emotion, but music. I grew up listening to Gustavo Cerati because my mom played him first, and of all his records, the one I love most is this one: Bocanada — not just for the songs, but for its cover, its own particular art direction. I wanted to paint that atmosphere — the dense night, the blue that barely lets you breathe, the smoke that wraps around everything, and those red dots floating as if they were the only thing still moving. This isn’t a literal homage to the record. It’s what’s left of it when I close my eyes."
     ]
-  }
+  },
+  "foto": "/src/assets/obras/bocanada/principal.webp",
+  "detalles": [
+    "/src/assets/obras/bocanada/detalle-1.webp"
+  ]
 }

@@ -1,0 +1,138 @@
+# Panel de edición de Jaquito — Pages CMS (https://app.pagescms.org)
+# Cada vez que se guarda algo en el panel se hace un commit en GitHub y Hostinger publica solo.
+
+media:
+  - name: obras
+    label: Fotos de obras
+    input: src/assets/obras
+    output: /src/assets/obras
+    rename: safe
+    categories: [image]
+
+content:
+  - name: obras
+    label: Obras
+    type: collection
+    path: src/content/obras
+    format: json
+    filename:
+      template: "{primary}.json"
+      field: create
+    view:
+      fields: [title, year, available, priceCOP, featured]
+      primary: title
+      sort: [year, title]
+      search: [title, catalog]
+      default:
+        sort: year
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+        description: "Ojo: al crear una obra, el título define la dirección web (ej. jaquito.art/obra/laguna-y-bruma-no-1)."
+      - name: titleEn
+        label: Título en inglés
+        type: string
+        description: Opcional. Si lo dejas vacío se usa el mismo título.
+      - name: year
+        label: Año
+        type: number
+        required: true
+      - name: catalog
+        label: Número de catálogo
+        type: string
+        description: Ej. JB-2026-006. Se usa para ordenar las obras de un mismo año y en el mensaje de WhatsApp.
+      - name: series
+        label: Serie
+        type: select
+        description: Opcional. Las series se editan en "Datos del sitio".
+        options:
+          values:
+            - { name: laguna, label: Laguna y bruma }
+            - { name: dorada, label: La ciudad dorada }
+            - { name: atmos, label: Atmósferas emocionales }
+            - { name: ventanas, label: Ventanas }
+      - name: tech
+        label: Técnica
+        type: object
+        fields:
+          - { name: es, label: Español, type: string, required: true }
+          - { name: en, label: Inglés, type: string, description: Si lo dejas vacío se usa el español. }
+      - name: dim
+        label: Medidas
+        type: string
+        description: Alto × ancho. Ej. 100 × 85 cm
+      - name: available
+        label: ¿Disponible para la venta?
+        type: boolean
+        description: Si está activo se muestra la etiqueta verde, el precio y el botón de WhatsApp.
+      - name: priceCOP
+        label: Precio (COP)
+        type: number
+        description: Solo números, sin puntos. Ej. 450000
+      - name: priceUSD
+        label: Precio (USD) — opcional
+        type: number
+        description: Si lo dejas vacío se calcula solo con la tasa de "Datos del sitio".
+      - name: featured
+        label: Destacada en el inicio
+        type: number
+        description: 1, 2, 3… para que salga en "Obras destacadas" en ese orden. Vacío = no sale.
+      - name: foto
+        label: Foto principal
+        type: image
+        description: Sube la foto en buena resolución (idealmente 2400 px o más de ancho). La web genera las versiones livianas.
+        options:
+          media: obras
+      - name: detalles
+        label: Fotos de detalle
+        type: image
+        description: Se muestran en el orden de esta lista.
+        options:
+          media: obras
+          multiple: true
+      - name: curatorial
+        label: Texto curatorial
+        type: object
+        fields:
+          - { name: es, label: Español (un bloque por párrafo), type: text, list: true }
+          - { name: en, label: Inglés (un bloque por párrafo), type: text, list: true }
+      - name: ph
+        label: Color de fondo mientras no hay foto
+        type: select
+        hidden: true
+        options:
+          values: [ph-clay, ph-sage, ph-slate, ph-ochre, ph-rose, ph-ink, ph-olive, ph-stone]
+
+  - name: sitio
+    label: Datos del sitio
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: contact
+        label: Contacto y redes
+        type: object
+        fields:
+          - { name: email, label: Correo, type: string }
+          - { name: whatsapp, label: WhatsApp (solo números, con 57), type: string, description: Ej. 573012386897 }
+          - { name: whatsappPretty, label: WhatsApp como se muestra, type: string, description: Ej. +57 301 238 6897 }
+          - { name: instagram, label: Usuario de Instagram, type: string }
+          - { name: instagramUrl, label: Enlace de Instagram, type: string }
+          - { name: pinterestUrl, label: Enlace de Pinterest, type: string }
+          - { name: tiktokUrl, label: Enlace de TikTok, type: string }
+      - name: series
+        label: Series
+        type: object
+        list: true
+        description: "Si agregas una serie nueva, avísale a quien mantiene la web para que aparezca en la lista de la ficha de obra."
+        fields:
+          - { name: id, label: Identificador (sin espacios ni tildes), type: string, required: true }
+          - { name: es, label: Nombre, type: string, required: true }
+          - { name: en, label: Nombre en inglés, type: string }
+      - name: copPorUsd
+        label: Pesos por dólar
+        type: number
+        description: Tasa para mostrar el precio aproximado en USD de las obras que no tienen precio USD propio.

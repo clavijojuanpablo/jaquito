@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import Footer from '../components/Footer.astro';
 import Sheet from '../components/Sheet.astro';
 import FRow from '../components/FRow.astro';
-import { getCopy, route, YEARS, SERIES, type Lang } from '../lib/i18n';
+import { getCopy, route, SERIES, type Lang } from '../lib/i18n';
 import { getWorks } from '../lib/works';
 
 interface Props { lang: Lang }
@@ -19,7 +19,7 @@ const attrs = (w: (typeof works)[number]) => ({
   'data-item': '', 'data-year': w.year, 'data-series': w.series?.id ?? '__none', 'data-status': w.available ? 'avail' : 'na'
 });
 const nBy = (f: (w: (typeof works)[number]) => boolean) => works.filter(f).length;
-const yearList = YEARS.filter((y) => works.some((w) => w.year === y));
+const yearList = years;
 let idx = -1;
 ---
 <Base lang={lang} current="work" path={route('work', lang)} altPath={route('work', es ? 'en' : 'es')}

@@ -21,5 +21,12 @@
     "en": [
       "Some emotions don’t fit inside the body. \"Púdrete\" is the act of giving back to the world what the world imposed: the rage, the weight of other people’s dynamics, the toxicity that piles up without asking permission. The canvas isn’t a representation — it’s a container. I didn’t paint this picture to be seen; I painted it to be able to let go. The color, violent and urgent, is the only language catharsis speaks."
     ]
-  }
+  },
+  "foto": "/src/assets/obras/pudrete/principal.webp",
+  "detalles": [
+    "/src/assets/obras/pudrete/detalle-1.webp",
+    "/src/assets/obras/pudrete/detalle-2.webp",
+    "/src/assets/obras/pudrete/detalle-3.webp",
+    "/src/assets/obras/pudrete/detalle-4.webp"
+  ]
 }

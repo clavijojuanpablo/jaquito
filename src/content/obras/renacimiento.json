@@ -21,5 +21,18 @@
     "en": [
       "This commission arrived with a number attached: twelve years. Twelve years away from Colombia, an entire life built somewhere else, until the day the person who commissioned it decided to come back — not with the nostalgia of someone returning defeated, but with the clarity of someone returning changed. \"Renacimiento\" was going to be the first piece to hang in their new home, so I knew it couldn’t be a painting about what was left behind. It had to be about what begins. I didn’t paint a memory: I painted a distance — twelve years made into color, the exact point where the person who left ends and the person who returns begins."
     ]
-  }
+  },
+  "foto": "/src/assets/obras/renacimiento/principal.webp",
+  "detalles": [
+    "/src/assets/obras/renacimiento/detalle-1.webp",
+    "/src/assets/obras/renacimiento/detalle-2.webp",
+    "/src/assets/obras/renacimiento/detalle-3.webp",
+    "/src/assets/obras/renacimiento/detalle-4.webp",
+    "/src/assets/obras/renacimiento/detalle-5.webp",
+    "/src/assets/obras/renacimiento/detalle-6.webp",
+    "/src/assets/obras/renacimiento/detalle-7.webp",
+    "/src/assets/obras/renacimiento/detalle-8.webp",
+    "/src/assets/obras/renacimiento/detalle-9.webp",
+    "/src/assets/obras/renacimiento/detalle-10.webp"
+  ]
 }
