@@ -1,9 +1,8 @@
 {
-  "catalog": "JB-2024-004",
-  "year": 2024,
   "title": "Aura",
   "titleEn": "Aura",
-  "series": null,
+  "year": 2024,
+  "catalog": "JB-2024-004",
   "tech": {
     "es": "Acrílico sobre lienzo",
     "en": "Acrylic on canvas"
@@ -12,8 +11,11 @@
   "available": true,
   "priceCOP": 450000,
   "priceUSD": 115,
-  "featured": null,
-  "ph": "ph-clay",
+  "featured": 4,
+  "foto": "/src/assets/obras/aura/principal.webp",
+  "detalles": [
+    "/src/assets/obras/aura/detalle-1.webp"
+  ],
   "curatorial": {
     "es": [
       "No elegí el nombre \"Aura\" buscando explicarlo — llegó después, casi por casualidad, y se quedó porque nombraba exactamente lo que había pasado en el cuarto esa noche. Era el único espacio disponible para pintar: oscuro, salvo por una luz cálida y tenue que apenas alcanzaba el lienzo. No esperaba nada de esa sesión, y por eso pude entrar en el momento más íntimo de mi proceso hasta entonces — la primera vez que me permití explorar sin juicio, sin buscar un resultado. Los naranjas suaves que cubren \"Aura\" no son una decisión de paleta: son esa luz, literal, la única que había esa noche. El nombre llegó solo, pero ya estaba ahí, iluminando el cuarto antes de tener palabra."
@@ -22,8 +24,5 @@
       "I didn’t choose the name \"Aura\" trying to explain anything — it arrived afterward, almost by chance, and it stayed because it named exactly what had happened in the room that night. It was the only space available to paint in: dark, except for a warm, faint light that barely reached the canvas. I wasn’t expecting anything from that session, and that’s exactly why I could enter the most intimate moment of my process so far — the first time I let myself explore without judgment, without chasing a result. The soft oranges that cover \"Aura\" aren’t a palette decision: they’re that light, literally, the only light there was that night. The name arrived on its own, but it was already there, lighting up the room before it had a word."
     ]
   },
-  "foto": "/src/assets/obras/aura/principal.webp",
-  "detalles": [
-    "/src/assets/obras/aura/detalle-1.webp"
-  ]
+  "ph": "ph-clay"
 }
