@@ -1,0 +1,14 @@
+{
+  "inicio": {
+    "movil": "/src/assets/site/home-hero-mobile.webp",
+    "escritorio": "/src/assets/site/home-hero-desktop.webp"
+  },
+  "sobremi": {
+    "movil": "/src/assets/site/sobremi-hero-mobile.webp",
+    "escritorio": "/src/assets/site/sobremi-hero-desktop.webp"
+  },
+  "infancia": {
+    "movil": "/src/assets/site/sobremi-jaquito-mobile.webp",
+    "escritorio": "/src/assets/site/sobremi-jaquito-desktop.webp"
+  }
+}

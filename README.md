@@ -24,7 +24,7 @@ Necesita Node 22.12 o superior.
 
 ## Panel de edición (para el artista) — Pages CMS
 
-Las obras, precios, fotos y datos de contacto se editan desde un panel web, sin tocar código ni git. No hay base de datos: el panel edita los mismos archivos JSON del repo y hace el commit; Hostinger publica solo.
+Las obras, precios, fotos (también las portadas) y datos de contacto se editan desde un panel web, sin tocar código ni git. No hay base de datos: el panel edita los mismos archivos JSON del repo y hace el commit; Hostinger publica solo.
 
 **Configuración (una sola vez):**
 1. El artista crea una cuenta en GitHub y se le agrega como colaborador del repo (Settings → Collaborators).
@@ -60,6 +60,8 @@ src/assets/obras/manglar/
 - La proporción de cada tarjeta sale de la foto real. Mientras no haya foto se ve el bloque de color del diseño.
 
 ### Fotos del sitio — `src/assets/site/`
+
+Desde el panel: "Fotos del sitio" (guarda las rutas en `src/data/fotos.json`). A mano: deja el archivo con uno de estos nombres; se usa cuando la ruta del panel está vacía.
 
 | Archivo (cualquier extensión de imagen)                     | Dónde se usa                        |
 | ----------------------------------------------------------- | ----------------------------------- |

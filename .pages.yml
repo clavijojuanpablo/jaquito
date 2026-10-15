@@ -8,6 +8,12 @@ media:
     output: /src/assets/obras
     rename: safe
     categories: [image]
+  - name: sitio
+    label: Fotos del sitio
+    input: src/assets/site
+    output: /src/assets/site
+    rename: safe
+    categories: [image]
 
 content:
   - name: obras
@@ -105,6 +111,32 @@ content:
         hidden: true
         options:
           values: [ph-clay, ph-sage, ph-slate, ph-ochre, ph-rose, ph-ink, ph-olive, ph-stone]
+
+  - name: fotos
+    label: Fotos del sitio
+    type: file
+    path: src/data/fotos.json
+    format: json
+    fields:
+      - name: inicio
+        label: Portada de Inicio
+        type: object
+        description: "Móvil = foto vertical, escritorio = horizontal. Si solo pones una, se usa para ambas. Sube buena resolución (2500 px o más)."
+        fields:
+          - { name: movil, label: Móvil, type: image, options: { media: sitio } }
+          - { name: escritorio, label: Escritorio, type: image, options: { media: sitio } }
+      - name: sobremi
+        label: Portada de Sobre mí
+        type: object
+        fields:
+          - { name: movil, label: Móvil, type: image, options: { media: sitio } }
+          - { name: escritorio, label: Escritorio, type: image, options: { media: sitio } }
+      - name: infancia
+        label: Foto de infancia (Quién es Jaquito)
+        type: object
+        fields:
+          - { name: movil, label: Móvil, type: image, options: { media: sitio } }
+          - { name: escritorio, label: Escritorio, type: image, options: { media: sitio } }
 
   - name: sitio
     label: Datos del sitio
